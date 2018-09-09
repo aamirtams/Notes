@@ -1,0 +1,71 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    package="com.ctrla.notes_keepitsafe"
+    android:installLocation="auto">
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.type.pc"
+        android:required="false" />
+
+    <uses-sdk
+        tools:overrideLibrary="us.feras.mdv" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Notepad">
+        <activity
+            android:name="com.ctrla.notes_keepitsafe.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.APP_MAPS" />
+            </intent-filter>
+            <meta-data android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+        <activity
+            android:name="com.ctrla.notes_keepitsafe.activity.NoteEditActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="org.chromium.arc.intent.action.CREATE_NOTE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ctrla.notes_keepitsafe.activity.SettingsActivity"
+            android:label="@string/action_settings"
+            android:theme="@style/Theme.Notepad.Dialog" >
+        </activity>
+
+        <receiver
+            android:name="com.ctrla.notes_keepitsafe.receiver.WearPluginReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.farmerbb.notepad.RECEIVE_NOTE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

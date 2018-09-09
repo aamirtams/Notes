@@ -1,0 +1,21 @@
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center"
+        android:src="@drawable/notepad_logo"
+        android:alpha="0.5" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_floating_action_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/fab_padding" />
+
+</FrameLayout>
